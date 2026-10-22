@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kisa-api-deployment
+  labels:
+    app: kisa-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: kisa-api
+  template:
+    metadata:
+      labels:
+        app: kisa-api
+    spec:
+      containers:
+      - name: kisa-api-konteyner
+        image: nginx:latest
+        ports:
+        - containerPort: 80
